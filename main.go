@@ -58,9 +58,7 @@ func checkErr(err error) {
 func download(scraper *colly.Collector, data Data){
 	scraper.OnResponse(func(response *colly.Response) {
 		video, err:=os.Create(data.Name+".mp4")
-		if err!=nil{
-			log.Fatal(err)
-		}
+		checkErr(err)
 		defer video.Close()
 		n2,err:=video.Write(response.Body)
 		fmt.Printf("Wrote %d bytes\n", n2)
