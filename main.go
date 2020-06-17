@@ -16,6 +16,11 @@ type Data struct {
 }
 func main(){
 	copiedLink:=flag.String("link","","Tiktok Copied link \n Example: https://vt.tiktok.com/D8RK6S/")
+	flag.Parse()
+	if *copiedLink==""{
+		flag.PrintDefaults()
+		os.Exit(0)
+	}
 	scraper :=newScraper()
 	data,err:=getVideoLink(*copiedLink,scraper)
 	checkErr(err)
