@@ -7,8 +7,6 @@ import (
 	"github.com/gocolly/colly"
 	"log"
 	"os"
-
-	"os"
 )
 
 type VideoProps struct {
